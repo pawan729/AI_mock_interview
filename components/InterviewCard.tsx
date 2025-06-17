@@ -8,13 +8,13 @@ import DisplayTechIcons from "./DisplayTechIcons";
 import { cn, getRandomInterviewCover } from "@/lib/utils";
 
 const InterviewCard = ({
-  interviewId,
+  id,
   role,
   type,
   techstack,
   createdAt,
 }: {
-  interviewId: string;
+  id: string;
   role: string;
   type: string;
   techstack: string[];
@@ -79,7 +79,7 @@ const InterviewCard = ({
         <div className="flex flex-row justify-between items-center mt-4">
           <DisplayTechIcons techStack={techstack} />
           <Button className="btn-primary">
-            <Link href={`/interview/${interviewId}`}>View Interview</Link>
+            <Link href={`/interview/${id}`}>View Interview</Link>
           </Button>
         </div>
       </div>

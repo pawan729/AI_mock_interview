@@ -2,6 +2,8 @@
 
 import { auth, db } from "@/firebase/admin";
 import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
+
 
 // Session duration (1 week)
 const SESSION_DURATION = 60 * 60 * 24 * 7;
@@ -26,6 +28,7 @@ export async function setSessionCookie(idToken: string) {
 }
 
 export async function signUp(params: SignUpParams) {
+  // console.log("signUp call ho raha h?");
   const { uid, name, email } = params;
 
   try {
@@ -39,7 +42,7 @@ export async function signUp(params: SignUpParams) {
 
     // save user to db
     await db.collection("users").doc(uid).set({
-      name,
+      name, 
       email,
       // profileURL,
       // resumeURL,
@@ -68,6 +71,7 @@ export async function signUp(params: SignUpParams) {
 }
 
 export async function signIn(params: SignInParams) {
+  // console.log("sign in ho raha h?");
   const { email, idToken } = params;
 
   try {
@@ -79,6 +83,11 @@ export async function signIn(params: SignInParams) {
       };
 
     await setSessionCookie(idToken);
+    //change
+    // return {success: true};
+    redirect("/");
+
+    // router.push("/");
   } catch (error: any) {
     console.log("");
 
@@ -130,3 +139,4 @@ export async function isAuthenticated() {
   const user = await getCurrentUser();
   return !!user;
 }
+

@@ -4,7 +4,7 @@ import Image from "next/image";
 
 import { Button } from "@/components/ui/button";
 import { dummyInterviews } from "@/constants";
-import InterviewCard from "@/components/InterviewCard"; // ✅ Add this line
+import InterviewCard from "@/components/InterviewCard"; 
 
 const Page = () => {
   return (
@@ -32,7 +32,7 @@ const Page = () => {
         <h2>Your Interviews</h2>
         <div className="interviews-section">
           {dummyInterviews.map((interview) => (
-            <InterviewCard key={interview.interviewId} {...interview} />
+            <InterviewCard key={interview.id} {...interview} />
           ))}
         </div>
       </section>
@@ -41,7 +41,7 @@ const Page = () => {
         <h2>Take an Interview</h2>
         <div className="interviews-section">
           {dummyInterviews.map((interview) => (
-            <InterviewCard key={interview.interviewId} {...interview} />
+            <InterviewCard key={interview.id} {...interview} />
           ))}
         </div>
       </section>
