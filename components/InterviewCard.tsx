@@ -12,7 +12,7 @@ const InterviewCard = ({
   role,
   type,
   techstack,
-  createdAt,
+  createdAt, 
 }: {
   id: string;
   role: string;

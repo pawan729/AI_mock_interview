@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { dummyInterviews } from "@/constants";
 import InterviewCard from "@/components/InterviewCard"; 
 import { getCurrentUser, getLatestInterviews } from "@/lib/actions/auth.action";
-import { getInterviewsByUserId } from "@/lib/actions/auth.action";
+import { getInterviewsByUserId } from "@/lib/actions/general.action";
 
 const Page = async () => {
   //using the concept of parallel rquest otherwise they would block each other
